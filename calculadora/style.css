@@ -1,0 +1,207 @@
+/*azul escuro: #00285a azul claro: #28C2EE */
+
+/* Seleciona todos os elementos no documento */
+* { 
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+ /* Definindo variáveis CSS globais no escopo do elemento raiz (:root) */
+:root {
+    --bg-color: #212529;       /* Cor de fundo */
+    --border-color: #666;      /* Cor das bordas */
+    --font-color: #f1f5f9;     /* Cor do texto */
+    --primary-color: #28C2EE;  /* Cor primária usada para destaques */
+    --error-color: #ff0043;    /* Cor usada para mensagens de erro */
+  }
+  
+  body {
+    background-color: var(--bg-color); /* pega a cor preta e coloca de fundo*/
+    color: var(--font-color); /* pega a cor branca e coloca de fundo*/
+    font-family: "New Amsterdam", sans-serif;
+  }
+  
+  /* Estilizando o elemento <main>:
+   - Tornando-o um bloco de nível superior
+   - Centralizando horizontalmente com 'margin: 0 auto'
+   - Definindo uma largura máxima de 40rem
+   - Adicionando espaçamento interno (padding) nas laterais e na parte inferior
+   - Definindo a posição relativa para permitir ajustes posicionais futuros */
+main {
+  display: block;
+  margin: 0 auto;
+  max-width: 40rem;
+  padding: 0 1.5rem 2.5rem;
+  position: relative;
+}
+
+header {
+  padding: 2rem 0;
+}
+
+/* Estilizando o botão de troca de tema (#themeSwitcher):
+   - Definindo a cor de fundo com a variável global '--bg-color'
+   - Criando uma borda sólida de 0.125rem com a cor do texto (var(--font-color))
+   - Definindo a cor do texto com a mesma variável '--font-color'
+*/
+#themeSwitcher {
+  background-color: var(--bg-color);
+  border: .125rem solid var(--font-color);
+  color: var(--font-color);
+}
+
+/* Ao passar o mouse sobre o botão (#themeSwitcher:hover):
+   - Invertendo as cores de fundo e texto para destacar o botão
+*/
+#themeSwitcher:hover {
+  background-color: var(--font-color);
+  color: var(--bg-color);
+}
+
+/* Estilizando o elemento <button>:
+   - Definindo a cor de fundo com a variável '--primary-color'
+   - Removendo a borda padrão (border: none)
+   - Arredondando os cantos com um raio de borda de 0.25rem
+   - Tornando o texto do botão mais espesso (font-weight: 700)
+   - Adicionando espaçamento interno (padding) de 0.5rem no topo/baixo e 1rem nas laterais
+   - Aplicando uma transição suave de 0.15s para mudanças de estilo (ex: hover) */
+   button {
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: .25rem;
+    font-weight: 700;
+    padding: .5rem 1rem;
+    transition: .15s;
+  }
+
+  /* Estilizando o elemento <input>:
+   - Definindo a cor de fundo com a variável '--bg-color'
+   - Aplicando uma borda sólida de 2px com a cor da variável '--border-color'
+   - Arredondando os cantos com um raio de borda de 0.5rem
+   - Definindo a cor do texto com a variável '--font-color'
+   - Exibindo o input como um bloco (block) para ocupar toda a largura
+   - Definindo o tamanho da fonte como 1.75rem para melhor legibilidade
+   - Centralizando o input horizontalmente com 'margin: 0 auto'
+   - Adicionando espaçamento interno (padding) de 1rem
+   - Alinhando o texto à direita com 'text-align: end'
+   - Ajustando a largura para 100% do contêiner
+*/
+input {
+  background-color: var(--bg-color);
+  border: 2px solid var(--border-color);
+  border-radius: .5rem;
+  color: var(--font-color);
+  display: block;
+  font-size: 1.75rem;
+  margin: 0 auto;
+  padding: 1rem;
+  text-align: end;
+  width: 100%;
+}
+
+/* Estilizando o contêiner #keys:
+   - Exibindo os itens dentro de uma grade (grid layout)
+   - Criando 4 colunas de largura igual (1fr) na grid
+   - Definindo um espaçamento de 1rem entre os itens na grid
+   - Adicionando uma margem vertical de 2rem para separar o bloco dos demais elementos
+*/
+#keys {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+/* Estilizando os botões dentro do contêiner #keys:
+   - Definindo a cor do texto com a variável '--bg-color'
+   - Alterando o cursor para pointer, indicando que o botão é clicável
+   - Ajustando o tamanho da fonte para 1.5rem
+   - Adicionando espaçamento interno (padding) de 1rem para aumentar a área clicável
+*/
+#keys button {
+  color: var(--bg-color);
+  cursor: pointer;
+  font-size: 1.5rem;
+  padding: 1rem;
+}
+
+/* Ao passar o mouse sobre os botões dentro de #keys:
+   - Aplicando um filtro de brilho (brightness) para escurecer o botão em 80%
+   - Isso cria um efeito visual de hover para indicar interatividade
+*/
+#keys button:hover {
+  filter: brightness(0.8);
+}
+
+/* Estilizando o contêiner #result:
+   - Definindo uma borda com espessura de 2px nas laterais e na parte inferior
+   - Arredondando os cantos superiores e inferiores à direita com um raio de 0.5rem
+*/
+#result {
+  border-width: 2px 2px 2px 0;
+  border-radius: 0 .5rem .5rem 0;
+}
+
+/* Estilizando o botão #copyToClipboard:
+   - Definindo o fundo como transparente
+   - Aplicando uma borda sólida com a cor da variável '--border-color'
+   - Definindo a espessura da borda como 2px
+   - Arredondando os cantos esquerdo superior e inferior com um raio de 0.5rem
+   - Definindo a cor do texto com a variável '--font-color'
+   - Mudando o cursor para pointer, indicando que o botão é clicável
+   - Exibindo o botão como um bloco
+   - Definindo a altura em 4.25rem e a largura em 6rem
+*/
+#copyToClipboard {
+  background-color: transparent;
+  border: solid var(--border-color);
+  border-width: 2px;
+  border-radius: .5rem 0 0 .5rem;
+  color: var(--font-color);
+  cursor: pointer;
+  display: block;
+  height: 4.25rem;
+  width: 6rem;
+}
+
+/* Aplicando layout flexível aos elementos:
+   - O contêiner com a classe .flex usará o modelo de layout flexbox
+   - Organiza os filhos em uma linha ou coluna flexível conforme o contexto
+*/
+.flex {
+  display: flex;
+}
+
+/* Centralizando verticalmente os itens dentro de um contêiner flexível:
+   - Usando align-items: center para alinhar os filhos ao centro na linha vertical
+*/
+.align-center {
+  align-items: center;
+}
+
+/* Justificando o conteúdo de um contêiner flexível:
+   - Usando justify-content: space-between para distribuir o espaço
+   - O espaço extra será colocado entre os itens, empurrando-os para as extremidades
+*/
+.justify-between {
+  justify-content: space-between;
+}
+
+/* Estilizando elementos com a classe .error:
+   - Definindo a cor de fundo com a variável '--error-color'
+   - Usado para indicar erros ou mensagens de alerta visualmente
+*/
+.error {
+  background-color: var(--error-color);
+}
+
+/* Estilizando elementos com a classe .success:
+   - Definindo a cor da borda com a variável '--primary-color' e usando !important para garantir que essa regra tenha prioridade
+   - Definindo a cor do texto também com a variável '--primary-color' e usando !important para garantir que essa regra tenha prioridade
+   - Usado para indicar sucesso ou mensagens positivas visualmente
+*/
+.success {
+  border-color: var(--primary-color) !important;
+  color: var(--primary-color) !important;
+}
